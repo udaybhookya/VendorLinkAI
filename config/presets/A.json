@@ -1,0 +1,10 @@
+{
+  "id": "A",
+  "label": "Handmade gifts · India · gifting buyer",
+  "refs": {
+    "business_profile": {"id": "handmade_gifts"},
+    "retailer_profile": {"id": "gifting"},
+    "country_pack": {"id": "IN"},
+    "retailer_policy": {"id": "default_gifting"}
+  }
+}

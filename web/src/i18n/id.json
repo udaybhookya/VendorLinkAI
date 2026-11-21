@@ -1,0 +1,352 @@
+{
+  "affirmatives": [
+    "ya",
+    "iya",
+    "setuju",
+    "oke",
+    "ok",
+    "baik",
+    "boleh",
+    "yes"
+  ],
+  "negatives": [
+    "tidak",
+    "nggak",
+    "jangan",
+    "batal",
+    "tolak",
+    "no"
+  ],
+  "decision": {
+    "green": "Diterima sesuai aturan Anda",
+    "amber": "Perlu persetujuan Anda",
+    "red": "Di luar aturan Anda — tawaran balik dikirim",
+    "decline": "Ditolak"
+  },
+  "deal_status": {
+    "open": "Baru",
+    "countered": "Tawaran balik dikirim",
+    "awaiting_consent": "Menunggu 'ya' dari Anda",
+    "signed": "Ditandatangani",
+    "declined": "Ditolak",
+    "rejected": "Peritel menolak"
+  },
+  "reasons": {
+    "QTY_OVER_DAILY_MAX": "Mereka meminta {requested} {sku}; batas harian Anda tersisa {allowed}.",
+    "DAILY_MAX_REACHED": "Batas harian {sku} Anda sudah terpakai.",
+    "PICKUP_BEFORE_WINDOW": "Penjemputan pukul {requested} terlalu pagi; saya tawarkan {earliest}.",
+    "PICKUP_AFTER_WINDOW": "Penjemputan pukul {requested} terlalu larut; saya tawarkan {earliest} besok.",
+    "PRICE_BELOW_FLOOR": "Mereka menawar {offered} untuk {sku}; harga terendah Anda {floor}.",
+    "PAYMENT_TOO_LATE": "Mereka ingin membayar dalam {requested_days} hari; Anda mengizinkan {max_days}.",
+    "BUYER_NOT_APPROVED": "{buyer} tidak ada di daftar pembeli Anda.",
+    "VALUE_OVER_AUTO_ACCEPT": "Totalnya {value}, di atas {max_value}, jadi perlu persetujuan Anda.",
+    "SKU_NOT_IN_MANDATE": "{sku} ({unit}) tidak ada di aturan Anda.",
+    "CURRENCY_MISMATCH": "Mereka membayar dalam {offered}, bukan {expected}.",
+    "NO_STANDING_MANDATE": "Anda belum menetapkan aturan, jadi perlu persetujuan Anda."
+  },
+  "readback": {
+    "deal": "{retailer} ingin {lines}, dijemput {pickup}, dibayar dalam {payment_days} hari. Total {value}.",
+    "line": "{qty} {unit} {sku} seharga {price} per {unit}",
+    "rules": "Aturan Anda: {skus}; penjemputan antara {windows}; pembayaran dalam {payment_days} hari; saya terima sendiri sampai {auto_accept}.",
+    "rule_sku": "{sku}: minimal {price_floor} per {unit}, maksimal {max_qty} {unit} sehari",
+    "listing": "{sku_name}, {qty} {unit} seharga {price}, mutu {grade}.",
+    "consent_question": "Boleh Guardian Anda menandatanganinya? Jawab ya atau tidak."
+  },
+  "activity": {
+    "guardian.decide": "Saya memeriksa pesanan dengan aturan Anda",
+    "guardian.sign_order": "Saya menandatangani pesanan untuk Anda",
+    "consent.register": "Saya mencatat 'ya' dari Anda",
+    "mandate.standing": "Aturan Anda ditandatangani dan disimpan",
+    "mandate.order": "Pesanan ditandatangani kedua pihak",
+    "relay.order.propose": "Peritel mengirim pesanan",
+    "relay.order.counter_response": "Peritel menjawab tawaran balik Anda",
+    "relay.listing.submit": "Saya mengirim produk Anda ke peritel",
+    "relay.listing.confirm": "Saya mengonfirmasi daftar produk Anda",
+    "relay.vendor.onboard": "Saya mengirim dokumen Anda untuk diperiksa",
+    "token.issue": "Izin akses aman diterbitkan",
+    "credential.issue": "Agen Anda mendapat identitas",
+    "credential.revoke": "Identitas agen diblokir",
+    "screen.vendor_document": "Dokumen diperiksa keamanannya",
+    "human.ask": "Saya mengajukan pertanyaan",
+    "human.answer": "Jawaban sudah masuk",
+    "listing.approved_by_guardian": "Saya menyetujui daftar produk sesuai aturan Anda",
+    "listing.confirmed": "Anda mengonfirmasi daftar produk",
+    "listing.withdrawn": "Anda menarik daftar produk",
+    "relay.listing.status": "Peritel sudah memutuskan daftar produk Anda"
+  },
+  "chat": {
+    "greeting": "Halo {name}. Kirim foto untuk menambah produk, atau tanyakan pesanan, aturan Anda, atau apa yang saya lakukan hari ini.",
+    "no_deals": "Tidak ada pesanan yang menunggu.",
+    "deals_summary": "Anda punya {count} pesanan. {details}",
+    "nothing_to_confirm": "Saat ini tidak ada yang menunggu persetujuan Anda.",
+    "signed": "Selesai. Guardian Anda sudah menandatanganinya dan peritel sudah dikabari.",
+    "not_signed": "Saya tidak menandatangani. {reason}",
+    "not_understood": "Maaf, saya kurang paham. Tanyakan tentang pesanan, aturan, atau hari ini.",
+    "cancelled": "Baik, tidak akan saya tandatangani.",
+    "rules_none": "Anda belum menetapkan aturan.",
+    "today_none": "Belum ada kegiatan hari ini.",
+    "today": "Hari ini: {items}.",
+    "no_questions": "Saat ini tidak ada yang menunggu jawaban Anda.",
+    "answered": "Terima kasih, jawaban Anda sudah saya teruskan.",
+    "unclear_answer": "Maaf, jawaban itu tidak bisa saya pakai ({reason}). Mohon ulangi."
+  },
+  "intents": {
+    "deals": [
+      "pesanan",
+      "order",
+      "transaksi"
+    ],
+    "rules": [
+      "aturan"
+    ],
+    "today": [
+      "hari ini",
+      "kegiatan"
+    ],
+    "questions": [
+      "pertanyaan",
+      "ditanya",
+      "ada yang ditanyakan"
+    ]
+  },
+  "ui": {
+    "tabs": {
+      "talk": "Obrolan",
+      "deals": "Pesanan",
+      "rules": "Aturan saya",
+      "activity": "Aktivitas",
+      "products": "Produk",
+      "setup": "Toko saya"
+    },
+    "simulated": "Prototipe — semua penjual, peritel, dan registri hanya simulasi",
+    "hold_to_talk": "Tahan untuk bicara",
+    "listening": "Mendengarkan…",
+    "type_here": "Ketik pesan",
+    "send": "Kirim",
+    "photo": "Foto",
+    "photo_added": "Foto ditambahkan. Sekarang sebutkan apa ini.",
+    "yes_sign": "Ya, tandatangani",
+    "no": "Tidak",
+    "signed_badge": "Ditandatangani Guardian Anda",
+    "not_signed": "Belum ditandatangani",
+    "per_day": "maks per hari",
+    "min_price": "harga terendah",
+    "pickup": "Penjemputan",
+    "payment": "Dibayar dalam",
+    "days": "hari",
+    "buyers": "Pembeli",
+    "auto_accept": "Saya terima sendiri sampai",
+    "no_rules": "Belum ada aturan",
+    "no_deals": "Belum ada pesanan",
+    "no_activity": "Belum ada",
+    "version": "Versi",
+    "voice_off": "Model suara belum diatur: memakai suara ponsel Anda.",
+    "who": "Siapa yang bertindak untuk saya",
+    "new_supplier": "+ Pemasok baru",
+    "register": {
+      "title": "Bergabung sebagai pemasok",
+      "intro": "Ceritakan tentang Anda. Kami buatkan agen Anda sendiri: ia bekerja untuk Anda, sesuai aturan yang Anda tetapkan.",
+      "display_name": "Nama toko atau usaha",
+      "legal_name": "Nama sesuai KTP",
+      "country": "Negara",
+      "language": "Bahasa",
+      "business": "Apa yang Anda jual?",
+      "create": "Buat agen saya",
+      "agent_ready": "Agen Anda sudah siap",
+      "agent_id": "Agen",
+      "fingerprint": "Sidik jari kunci",
+      "status": "Status",
+      "start": "Siapkan toko saya"
+    },
+    "setup": {
+      "documents": "1 · Dokumen",
+      "number": "Nomor",
+      "photo_optional": "Foto (opsional)",
+      "save": "Simpan",
+      "rules_title": "2 · Aturan jualan saya",
+      "sku": "Produk",
+      "unit": "Satuan",
+      "max_per_day": "Maks per hari",
+      "add_sku": "+ Tambah produk",
+      "pickup_from": "Dijemput dari",
+      "pickup_to": "sampai",
+      "payment_days": "Dibayar dalam (hari)",
+      "auto_accept": "Saya terima sendiri sampai",
+      "buyers": "Siapa boleh membeli",
+      "preview": "Bacakan aturan saya",
+      "consent_yes": "Ya, tandatangani aturan saya",
+      "retailers": "3 · Peritel",
+      "invited_by": "mengundang Anda",
+      "apply": "Daftar",
+      "applied": "Sudah daftar",
+      "checks": "Pemeriksaan",
+      "done": "Selesai",
+      "status": "Status",
+      "change_rules": "Ubah aturan saya",
+      "step_documents": "Dokumen",
+      "step_rules": "Aturan ditandatangani",
+      "step_retailers": "Peritel"
+    },
+    "products": {
+      "add": "Tambah produk",
+      "describe": "Ucapkan atau ketik apa itu, berapa banyak, dan harganya",
+      "label_text": "Teks label (makanan kemasan)",
+      "draft": "Buat daftar produk",
+      "confirm": "Ya, tampilkan",
+      "needs_review": "Akan diperiksa petugas dulu",
+      "none": "Belum ada produk",
+      "flags": "Perlu perhatian",
+      "approved": "Agen Anda menyetujui ini sesuai aturan Anda dan mengirimnya ke peritel.",
+      "check": "Mohon periksa sebelum dikirim ke peritel",
+      "your_photo": "Foto Anda",
+      "photo_n": "Foto {n} (diperbaiki AI)",
+      "use_photo": "Pakai foto ini",
+      "retake": "Tips memotret ulang",
+      "send_as_is": "Kirim apa adanya",
+      "dont_list": "Jangan dicantumkan",
+      "ai": "Diperbaiki AI",
+      "sent": "Terkirim ke peritel",
+      "enhanced": "Diperbaiki otomatis (cahaya dan bingkai)",
+      "working": "Agen peritel sedang memeriksa foto dan menulis daftar produk Anda. Ini bisa memakan waktu hingga satu menit.",
+      "add_hint": "Asisten meminta foto dan beberapa kata, lalu agen peritel menuliskan daftar produk untuk Anda.",
+      "finish": "Periksa dan kirim",
+      "look_ai": "{name} · AI"
+    },
+    "questions": "Pertanyaan untuk Anda",
+    "answer": "Jawab",
+    "no_questions": "Tidak ada pertanyaan saat ini",
+    "terms": {
+      "title": "Ketentuan yang ditawarkan",
+      "paid_within": "Dibayar dalam {days} hari",
+      "accept": "Terima",
+      "decline": "Tolak",
+      "outside_rules": "Di luar aturan Anda: pembayaran lebih lama dari yang Anda izinkan",
+      "accepted": "Diterima",
+      "declined": "Ditolak",
+      "no_rules": "Tetapkan aturan Anda dulu"
+    },
+    "language": "Bahasa",
+    "assistant": "Asisten",
+    "chips": {
+      "add": "Tambah produk",
+      "deals": "Pesanan saya",
+      "rules": "Aturan saya",
+      "today": "Apa yang terjadi hari ini?"
+    },
+    "flow": {
+      "start": "Ayo tambah produk. Kirim fotonya lewat tombol kamera, lalu sebutkan apa itu, harganya, dan berapa banyak yang bisa Anda buat per hari.",
+      "got_photo": "Fotonya bagus. Sekarang sebutkan apa itu, harganya, dan berapa banyak yang bisa Anda buat per hari. Boleh bicara atau mengetik.",
+      "label": "Satu lagi: ketik tulisan yang tercetak di label, atau ketuk Lewati.",
+      "skip": "Lewati",
+      "cancel": "Batal",
+      "cancelled": "Baik, saya berhenti. Tidak ada yang dicantumkan.",
+      "not_listed": "Tidak dicantumkan."
+    },
+    "needs": {
+      "title": "Menunggu Anda",
+      "all_clear": "Semua beres. Tidak ada yang menunggu Anda."
+    },
+    "demo_tag": "Data demo"
+  },
+  "hitl": {
+    "q": {
+      "price": "Berapa harga Anda per {unit} untuk {sku}?",
+      "qty": "Berapa {unit} {sku} yang bisa Anda kirim?",
+      "describe": "Apa yang Anda jual, berapa banyak, dan berapa harganya?",
+      "doc": "Mohon kirim nomor {doc} Anda.",
+      "doc_failed": {
+        "NAME_MISMATCH": "{doc} Anda terdaftar atas nama lain. Mohon kirim nomor {doc} atas nama resmi Anda.",
+        "NOT_FOUND": "Nomor {doc} Anda tidak ditemukan di registri. Mohon periksa dan kirim lagi.",
+        "BAD_FORMAT": "Nomor {doc} Anda sepertinya tidak benar. Mohon periksa dan kirim lagi.",
+        "EXPIRED": "{doc} Anda sudah kedaluwarsa. Mohon kirim nomor yang masih berlaku."
+      },
+      "supply": "{retailer} bertanya: bisakah Anda mengirim {sku} ({qty} {unit}) pada {date}? Balas dengan harga per {unit}, atau tidak.",
+      "consent": "{retailer} menunggu persetujuan Anda untuk pesanan {order}. Buka VendorLinkAI untuk mendengar ketentuannya lalu jawab ya atau tidak.",
+      "counter_approval": "{vendor} memberi tawaran balik untuk pesanan {order}: {summary}. Perubahannya {delta}. Setujui?",
+      "order_over_limit": "Pesanan {order} untuk {store} bernilai {value}, di atas batas {limit}. Kirim ke {vendor}?",
+      "vendor_approval": "Pemasok baru {vendor} lolos pemeriksaan ({checks}). Setujui?",
+      "listing_review": "Produk \"{sku}\" dari {vendor} perlu ditinjau: {reasons}. Tampilkan?",
+      "run_done": "Putaran pesanan {date}: {sent} terkirim, {waiting} menunggu, {skipped} perlu jawaban pemasok.",
+      "info_answer": "{vendor} menjawab \"{answer}\" tentang {subject}.",
+      "listing_review_vendor": "Mohon periksa daftar produk \"{sku}\" sebelum dikirim ke {retailer}: {reasons}. Foto mana yang dipakai?"
+    },
+    "msg": {
+      "reply_hint": "Balas di sini dengan: {choices}.",
+      "open_link": "Atau buka: {link}",
+      "reminder": "Pengingat",
+      "subject": "[{token}] {title}",
+      "thanks": "Terima kasih, sudah dicatat.",
+      "unclear": "Maaf, saya tidak paham. Mohon balas dengan: {choices}."
+    },
+    "choice": {
+      "approve": "setujui",
+      "reject": "tolak",
+      "yes": "ya",
+      "no": "tidak",
+      "my_photo": "Foto saya sendiri",
+      "photo": "Foto {n}",
+      "dont_list": "Jangan dicantumkan",
+      "enhanced": "Foto yang diperbaiki otomatis"
+    },
+    "choice_words": {
+      "approve": [
+        "ya",
+        "oke",
+        "ok",
+        "setuju",
+        "disetujui",
+        "kirim",
+        "lanjut",
+        "👍",
+        "✅"
+      ],
+      "reject": [
+        "tidak",
+        "tolak",
+        "jangan",
+        "batal",
+        "👎",
+        "❌"
+      ],
+      "my_photo": [
+        "punya saya",
+        "foto saya",
+        "asli",
+        "original"
+      ],
+      "enhanced": [
+        "diperbaiki",
+        "otomatis",
+        "enhanced"
+      ]
+    }
+  },
+  "language_name": "Bahasa Indonesia",
+  "language_short": "Bahasa",
+  "listing_reason": {
+    "PRICE_NOT_WHAT_SHE_SAID": "harganya bukan yang Anda sebutkan",
+    "QTY_NOT_WHAT_SHE_SAID": "jumlahnya bukan yang Anda sebutkan",
+    "FACTS_NOT_FROM_HER": "ada detail tambahan yang tidak Anda sebutkan",
+    "TEXT_REWRITE_NEEDS_HER_OK": "deskripsinya ditulis ulang",
+    "AI_PHOTO_NEEDS_HER_OK": "foto Anda diperbaiki dengan AI; pastikan masih sama dengan produk Anda",
+    "PHOTO_BELOW_STANDARD": "foto belum memenuhi standar peritel; Anda bisa memotret ulang atau mengirim apa adanya"
+  },
+  "photo_tip": {
+    "IMAGE_LOW_RESOLUTION": "Dekatkan kamera agar produk memenuhi bingkai",
+    "IMAGE_BLURRY": "Pegang ponsel dengan stabil dan ketuk produk untuk fokus",
+    "IMAGE_TOO_DARK": "Potret di dekat jendela saat siang",
+    "IMAGE_TOO_BRIGHT": "Hindari sinar matahari langsung; pakai cahaya lembut",
+    "IMAGE_CLUTTERED_BACKGROUND": "Letakkan produk di atas kain atau kertas polos berwarna terang",
+    "IMAGE_PRODUCT_TOO_SMALL": "Isi bingkai dengan produk",
+    "IMAGE_POOR_LIGHTING": "Pakai cahaya lembut dan merata dari depan",
+    "IMAGE_NOISY": "Bersihkan lensa dan tambah cahaya",
+    "IMAGE_NOT_CATALOGUE_READY": "Latar polos, cahaya siang, produk di tengah",
+    "IMAGE_PRODUCT_CUT_OFF": "Mundur sedikit agar seluruh produk masuk foto"
+  },
+  "listing_status": {
+    "draft": "Menunggu Anda",
+    "needs_review": "Sedang diperiksa",
+    "published": "Tayang",
+    "rejected": "Tidak dicantumkan"
+  }
+}

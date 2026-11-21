@@ -1,0 +1,55 @@
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+.mypy_cache/
+.ruff_cache/
+.pytest_cache/
+.hypothesis/
+*.egg-info/
+dist/
+build/
+.coverage
+htmlcov/
+# uv.lock is the lock file; `uv export` output goes stale
+req.txt
+requirements*.txt
+
+# Secrets and local state
+.env
+.env.*
+!.env.example
+.vl_data/
+
+# Web
+web/node_modules/
+web/dist/
+web/*.tsbuildinfo
+
+# OS / editors
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+*.swp
+# Office lock files while a .docx / .xlsx is open
+~$*
+
+# Logs
+*.log
+
+# Deploy-time contacts (infra/deploy.env.example)
+infra/deploy.env
+
+# Demo video pipeline (screencast, voiceover, renders): kept locally, not part of the solution
+docs/demo_video/
+scripts/record_demo.py
+scripts/make_voiceover.py
+scripts/build_demo_video.py
+
+# Superseded by docs/PLAN.md
+docs/vendorlinkai_coding_plan.md
+
+# Firebase deploy cache and target mapping (infra/deploy_web.sh writes it)
+.firebase/
+.firebaserc

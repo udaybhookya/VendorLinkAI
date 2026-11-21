@@ -1,0 +1,149 @@
+{
+  "_note": "Synthetic vendors for the demo. No real people. Maya pours candles by hand at home in Hyderabad; she speaks Telugu (the app opens in English, the language picker switches it).",
+  "vendors": [
+    {
+      "vendor": {
+        "id": "vendor:maya",
+        "display_name": "Maya",
+        "legal_name": "Maya Thomas",
+        "business_profile": "handmade_gifts",
+        "country": "IN",
+        "language": "en",
+        "status": "active",
+        "retailers": [
+          "retailer:freshcart"
+        ],
+        "docs": [
+          {
+            "doc_type": "aadhaar",
+            "number": "234567890123",
+            "uri": "",
+            "status": "verified"
+          },
+          {
+            "doc_type": "ifsc_account",
+            "number": "SBIN0001234:123456789012",
+            "uri": "",
+            "status": "verified"
+          }
+        ]
+      },
+      "rules": {
+        "skus": [
+          {
+            "sku": "lavender candle",
+            "unit": "piece",
+            "price_floor": "180",
+            "max_qty_per_day": "40"
+          },
+          {
+            "sku": "candle gift set",
+            "unit": "gift_set",
+            "price_floor": "550",
+            "max_qty_per_day": "10"
+          }
+        ],
+        "pickup_windows": [
+          {
+            "start": "10:00",
+            "end": "18:00"
+          }
+        ],
+        "payment_days_max": 15,
+        "approved_buyers": [
+          "retailer:freshcart"
+        ],
+        "auto_accept_max_value": "5000"
+      },
+      "consent": {
+        "transcript": "yes, okay",
+        "language": "en"
+      },
+      "listings": [
+        {
+          "id": "lst-maya-lavender",
+          "vendor_id": "vendor:maya",
+          "sku_name": "lavender candle",
+          "category": "candles",
+          "unit": "piece",
+          "price": "220",
+          "currency": "INR",
+          "qty": "40",
+          "grade": "A",
+          "attributes": {
+            "scent": "lavender",
+            "size": "200 g jar",
+            "burn_time_hours": 40
+          },
+          "confidence": 0.92,
+          "status": "published"
+        },
+        {
+          "id": "lst-maya-giftset",
+          "vendor_id": "vendor:maya",
+          "sku_name": "candle gift set",
+          "category": "gift_sets",
+          "unit": "gift_set",
+          "price": "650",
+          "currency": "INR",
+          "qty": "10",
+          "grade": "A",
+          "attributes": {
+            "scent": "jasmine, sandalwood, rose",
+            "size": "3 × 100 g"
+          },
+          "confidence": 0.9,
+          "status": "published"
+        }
+      ]
+    },
+    {
+      "vendor": {
+        "id": "vendor:sara",
+        "display_name": "Sara",
+        "legal_name": "Sara Rahman",
+        "business_profile": "packaged_food",
+        "country": "ID",
+        "language": "en",
+        "status": "pending_approval",
+        "retailers": [
+          "retailer:freshcart"
+        ],
+        "docs": [
+          {
+            "doc_type": "nik",
+            "number": "3174012345670001",
+            "uri": "",
+            "status": "submitted"
+          },
+          {
+            "doc_type": "bank_account",
+            "number": "1234567890",
+            "uri": "",
+            "status": "submitted"
+          },
+          {
+            "doc_type": "pirt",
+            "number": "206320101014925",
+            "uri": "",
+            "status": "submitted"
+          }
+        ]
+      }
+    },
+    {
+      "vendor": {
+        "id": "vendor:sam",
+        "display_name": "Sam",
+        "legal_name": "Sam Daniel",
+        "business_profile": "handmade_gifts",
+        "country": "IN",
+        "language": "en",
+        "status": "draft",
+        "retailers": [
+          "retailer:freshcart"
+        ]
+      }
+    }
+  ]
+}

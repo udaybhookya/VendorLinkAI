@@ -1,0 +1,472 @@
+{
+  "$defs": {
+    "Choice": {
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "description": "Machine value, e.g. approve",
+          "title": "Id",
+          "type": "string"
+        },
+        "label": {
+          "title": "Label",
+          "type": "string"
+        },
+        "words": {
+          "description": "Extra words that mean this choice",
+          "items": {
+            "type": "string"
+          },
+          "title": "Words",
+          "type": "array"
+        }
+      },
+      "required": [
+        "id",
+        "label"
+      ],
+      "title": "Choice",
+      "type": "object"
+    },
+    "ImageCandidate": {
+      "additionalProperties": false,
+      "description": "A photo the listing could use: her original, or an AI-enhanced version of it.",
+      "properties": {
+        "id": {
+          "description": "original, enhanced, or img-1, img-2 …",
+          "title": "Id",
+          "type": "string"
+        },
+        "kind": {
+          "description": "her photo; auto-enhanced in code (light, framing; not AI); or AI-regenerated",
+          "enum": [
+            "original",
+            "enhanced",
+            "generated"
+          ],
+          "title": "Kind",
+          "type": "string"
+        },
+        "uri": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "Blob URI; none when only a prompt exists",
+          "title": "Uri"
+        },
+        "prompt": {
+          "default": "",
+          "description": "Regeneration prompt (also a reshoot tip)",
+          "title": "Prompt",
+          "type": "string"
+        },
+        "preview_b64": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "Small JPEG for the apps",
+          "title": "Preview B64"
+        },
+        "look": {
+          "default": "",
+          "description": "The retailer's look this AI version was styled in",
+          "title": "Look",
+          "type": "string"
+        },
+        "look_name": {
+          "additionalProperties": {
+            "type": "string"
+          },
+          "description": "That look's name, by language",
+          "title": "Look Name",
+          "type": "object"
+        }
+      },
+      "required": [
+        "id",
+        "kind"
+      ],
+      "title": "ImageCandidate",
+      "type": "object"
+    },
+    "InfoRequest": {
+      "additionalProperties": false,
+      "description": "What an agent needs from a person to continue. Emitted by specialists and jobs.",
+      "properties": {
+        "field": {
+          "description": "What is missing, e.g. price, qty, doc:aadhaar",
+          "title": "Field",
+          "type": "string"
+        },
+        "ask": {
+          "description": "Role to ask: vendor, buyer, category_manager, ops",
+          "title": "Ask",
+          "type": "string"
+        },
+        "kind": {
+          "default": "missing_info",
+          "enum": [
+            "missing_info",
+            "approval",
+            "consent",
+            "review",
+            "notice"
+          ],
+          "title": "Kind",
+          "type": "string"
+        },
+        "answer_type": {
+          "default": "text",
+          "enum": [
+            "choice",
+            "number",
+            "text",
+            "date"
+          ],
+          "title": "Answer Type",
+          "type": "string"
+        },
+        "question_key": {
+          "description": "i18n key for the question, e.g. hitl.q.price",
+          "title": "Question Key",
+          "type": "string"
+        },
+        "params": {
+          "additionalProperties": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "integer"
+              },
+              {
+                "type": "number"
+              }
+            ]
+          },
+          "title": "Params",
+          "type": "object"
+        },
+        "choices": {
+          "items": {
+            "$ref": "#/$defs/Choice"
+          },
+          "title": "Choices",
+          "type": "array"
+        }
+      },
+      "required": [
+        "field",
+        "ask",
+        "question_key"
+      ],
+      "title": "InfoRequest",
+      "type": "object"
+    },
+    "Listing": {
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "title": "Id",
+          "type": "string"
+        },
+        "vendor_id": {
+          "title": "Vendor Id",
+          "type": "string"
+        },
+        "sku_name": {
+          "title": "Sku Name",
+          "type": "string"
+        },
+        "category": {
+          "title": "Category",
+          "type": "string"
+        },
+        "unit": {
+          "title": "Unit",
+          "type": "string"
+        },
+        "price": {
+          "title": "Price",
+          "type": "string"
+        },
+        "currency": {
+          "title": "Currency",
+          "type": "string"
+        },
+        "qty": {
+          "title": "Qty",
+          "type": "string"
+        },
+        "grade": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Grade"
+        },
+        "shelf_life_days": {
+          "anyOf": [
+            {
+              "minimum": 0,
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Shelf Life Days"
+        },
+        "attributes": {
+          "additionalProperties": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "integer"
+              },
+              {
+                "type": "number"
+              },
+              {
+                "type": "boolean"
+              }
+            ]
+          },
+          "title": "Attributes",
+          "type": "object"
+        },
+        "photos": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Photos",
+          "type": "array"
+        },
+        "flags": {
+          "items": {
+            "$ref": "#/$defs/ListingFlag"
+          },
+          "title": "Flags",
+          "type": "array"
+        },
+        "confidence": {
+          "default": 0.0,
+          "maximum": 1,
+          "minimum": 0,
+          "title": "Confidence",
+          "type": "number"
+        },
+        "status": {
+          "default": "draft",
+          "enum": [
+            "draft",
+            "needs_review",
+            "published",
+            "rejected"
+          ],
+          "title": "Status",
+          "type": "string"
+        },
+        "title": {
+          "default": "",
+          "title": "Title",
+          "type": "string"
+        },
+        "description": {
+          "default": "",
+          "title": "Description",
+          "type": "string"
+        },
+        "bullets": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Bullets",
+          "type": "array"
+        },
+        "images": {
+          "description": "Her original first, then enhanced candidates",
+          "items": {
+            "$ref": "#/$defs/ImageCandidate"
+          },
+          "title": "Images",
+          "type": "array"
+        },
+        "sources": {
+          "additionalProperties": {
+            "enum": [
+              "vendor",
+              "answer",
+              "photo",
+              "model"
+            ],
+            "type": "string"
+          },
+          "description": "Where each fact came from (price, qty, attributes …)",
+          "title": "Sources",
+          "type": "object"
+        },
+        "ai_enhanced": {
+          "default": false,
+          "description": "The chosen photo is AI-enhanced",
+          "title": "Ai Enhanced",
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "id",
+        "vendor_id",
+        "sku_name",
+        "category",
+        "unit",
+        "price",
+        "currency",
+        "qty"
+      ],
+      "title": "Listing",
+      "type": "object"
+    },
+    "ListingApprovalOut": {
+      "additionalProperties": false,
+      "properties": {
+        "auto_approve": {
+          "title": "Auto Approve",
+          "type": "boolean"
+        },
+        "image": {
+          "default": "original",
+          "description": "The photo to confirm with",
+          "title": "Image",
+          "type": "string"
+        },
+        "reasons": {
+          "description": "Machine codes: why she must look first",
+          "items": {
+            "type": "string"
+          },
+          "title": "Reasons",
+          "type": "array"
+        }
+      },
+      "required": [
+        "auto_approve"
+      ],
+      "title": "ListingApprovalOut",
+      "type": "object"
+    },
+    "ListingFlag": {
+      "additionalProperties": false,
+      "properties": {
+        "code": {
+          "description": "Machine code, e.g. UNSUPPORTED_CLAIM_ORGANIC",
+          "title": "Code",
+          "type": "string"
+        },
+        "detail": {
+          "default": "",
+          "title": "Detail",
+          "type": "string"
+        }
+      },
+      "required": [
+        "code"
+      ],
+      "title": "ListingFlag",
+      "type": "object"
+    },
+    "ListingStepOut": {
+      "additionalProperties": false,
+      "properties": {
+        "listing": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/Listing"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "flags": {
+          "items": {
+            "$ref": "#/$defs/ListingFlag"
+          },
+          "title": "Flags",
+          "type": "array"
+        },
+        "needs_review": {
+          "default": false,
+          "title": "Needs Review",
+          "type": "boolean"
+        },
+        "notes": {
+          "default": "",
+          "title": "Notes",
+          "type": "string"
+        },
+        "requests": {
+          "description": "What a person must tell us before this can continue",
+          "items": {
+            "$ref": "#/$defs/InfoRequest"
+          },
+          "title": "Requests",
+          "type": "array"
+        }
+      },
+      "required": [
+        "listing"
+      ],
+      "title": "ListingStepOut",
+      "type": "object"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "result": {
+      "$ref": "#/$defs/ListingStepOut"
+    },
+    "readback": {
+      "title": "Readback",
+      "type": "string"
+    },
+    "approval": {
+      "anyOf": [
+        {
+          "$ref": "#/$defs/ListingApprovalOut"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "description": "Her agent's verdict: approved for her, or why she must look"
+    }
+  },
+  "required": [
+    "result",
+    "readback"
+  ],
+  "title": "ListingDraftView",
+  "type": "object"
+}
